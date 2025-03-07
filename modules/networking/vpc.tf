@@ -1,5 +1,5 @@
 resource "aws_vpc" "vpc_virginia" {
-    cidr_block       = "10.10.0.0/16"
+    cidr_block       = var.virginia_cidr
     instance_tenancy = "default"
 
     tags = {
@@ -10,7 +10,7 @@ resource "aws_vpc" "vpc_virginia" {
 }
 
 resource "aws_vpc" "vpc_ohio" {
-    cidr_block       = "10.20.0.0/16"
+    cidr_block       = var.ohio_cidr
     instance_tenancy = "default"
 
     tags = {
@@ -19,3 +19,4 @@ resource "aws_vpc" "vpc_ohio" {
     }
     provider = aws.ohio
 }
+
