@@ -9,6 +9,7 @@ resource "random_string" "suffix"{
 resource "aws_s3_bucket" "bucket-prueba-atoj" {
     count = var.bucket_count
     bucket = "${var.bucket_prefix}-${random_string.suffix[count.index].id}"
+    provider = aws.virginia
 
     tags = {
         Owner       = "ATOJ"
