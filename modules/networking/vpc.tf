@@ -33,6 +33,10 @@ resource "aws_subnet" "private_subnet" {
         description = "Private Subnet Description example"
         CIDR = var.private_subnet_virginia
     }
+
+    depends_on = [ 
+        aws_subnet.public_subnet # This means depending object will be created before this one.
+    ]
 }
 # Calling object variable
 resource "aws_vpc" "vpc_ohio" {
