@@ -4,6 +4,39 @@ This is a basic **Terraform boilerplate** that provides a structured way to mana
 
 ## Project Structure
 
+terraform-project/
+│── main.tf                   # Root Terraform configuration file
+│── environments/             # Environment-specific configurations
+│   ├── dev/                  # Development environment
+│   │   ├── main.tf
+│   │   ├── variables.tf
+│   │   ├── outputs.tf
+│   │   ├── terraform.tfvars
+│   ├── staging/              # Staging environment
+│   ├── prod/                 # Production environment
+│
+│── modules/                  # Reusable modules
+│   ├── networking/            # Module for networking (VPC, subnets, etc.)
+│   │   ├── main.tf
+│   │   ├── variables.tf
+│   │   ├── outputs.tf
+│   │   ├── README.md
+│   ├── compute/               # Module for compute resources (EC2, Lambda, etc.)
+│   ├── storage/               # Module for storage (S3, EBS, etc.)
+│   ├── security/              # Module for IAM, Security Groups, etc.
+│
+│── scripts/                   # Utility scripts (Bash, Python, etc.)
+│   ├── init.sh                # Initialization script
+│   ├── apply.sh               # Script to apply Terraform configurations
+│
+│── .terraform/                 # Terraform files (state, backend, etc.)
+│── .terraform.lock.hcl         # Dependency lock file
+│── terraform.tfstate           # Terraform state file (should not be committed to repo)
+│── terraform.tfstate.backup    # Backup of the state file
+│── .gitignore                  # Ignore sensitive files
+│── README.md                   # Project documentation
+
+
 ### `providers.tf`
 Defines the required providers and specifies the AWS provider along with the Terraform version constraints.
 
@@ -36,6 +69,38 @@ Specifies the outputs of the Terraform deployment, such as the names of the crea
 Este es un **boilerplate de Terraform** básico que proporciona una estructura organizada para gestionar y desplegar infraestructura en AWS con Terraform. Incluye configuraciones modulares para garantizar que tus archivos están bien estructurados
 
 ## Estructura del Proyecto
+
+terraform-project/
+│── main.tf                   # Archivo principal de configuración Terraform
+│── environments/             # Configuraciones por entorno
+│   ├── dev/                  # Entorno de desarrollo
+│   │   ├── main.tf
+│   │   ├── variables.tf
+│   │   ├── outputs.tf
+│   │   ├── terraform.tfvars
+│   ├── staging/              # Entorno de preproducción
+│   ├── prod/                 # Entorno de producción
+│
+│── modules/                  # Módulos reutilizables
+│   ├── networking/            # Módulo para redes (VPC, subnets, etc.)
+│   │   ├── main.tf
+│   │   ├── variables.tf
+│   │   ├── outputs.tf
+│   │   ├── README.md
+│   ├── compute/               # Módulo para instancias (EC2, Lambda, etc.)
+│   ├── storage/               # Módulo para almacenamiento (S3, EBS, etc.)
+│   ├── security/              # Módulo para IAM, Security Groups, etc.
+│
+│── scripts/                   # Scripts auxiliares (Bash, Python, etc.)
+│   ├── init.sh                # Script para inicialización
+│   ├── apply.sh               # Script para ejecutar Terraform
+│
+│── .terraform/                 # Archivos de Terraform (estado, backend, etc.)
+│── .terraform.lock.hcl         # Archivo de bloqueo de dependencias
+│── terraform.tfstate           # Estado de Terraform (no debe subirse al repo)
+│── terraform.tfstate.backup    # Copia de seguridad del estado
+│── .gitignore                  # Ignorar archivos sensibles
+│── README.md                   # Documentación del proyecto
 
 ### `providers.tf`
 Define los proveedores requeridos y especifica el proveedor de AWS junto con las versiones compatibles de Terraform.
