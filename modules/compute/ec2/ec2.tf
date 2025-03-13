@@ -1,24 +1,10 @@
 resource "aws_instance" "public_instance" {
-    ami                     = "ami-08b5b3a93ed654d19"
-    instance_type           = "t2.micro" # free tier.
+    ami                     = var.ec2_specs["ami"]   
+    instance_type           = var.ec2_specs["instance_type"] 
     subnet_id =  var.subnet_id
     key_name = data.aws_key_pair.key_ec2.key_name
     vpc_security_group_ids = [var.security_group_id]
-/*     user_data = <<-EOF # In this case this will be executed by root all these commands you wish.
-        #!/bin/bash
-        # Refresh the system
-        sudo yum update -y
-
-        # Install Apache
-        sudo yum install -y httpd
-
-        # Init Apache and enable it 
-        sudo systemctl start httpd
-        sudo systemctl enable httpd
-
-        # Create a message.txt
-        echo "This is a random message" > ~/message.txt
-        EOF */
+    # user_data = file("../../../scripts/userdata.sh") # this a way to execute as root a script, avoid to uncomment if don't want to be charged by AWS.
 
     tags = {
         Name = "EC2_Virginia_Test"

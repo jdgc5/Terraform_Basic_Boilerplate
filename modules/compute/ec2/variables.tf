@@ -9,7 +9,3 @@ variable "security_group_id" {
     type        = string
 }
 
-variable "ec2_specs" {
-    description = "value"
-    type = map(strings)
-}
