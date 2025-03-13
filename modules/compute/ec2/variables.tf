@@ -9,3 +9,8 @@ variable "security_group_id" {
     type        = string
 }
 
+variable "ec2_specs" {
+    description = "Contains AMI and Type for EC2 Instance"
+    type        = map(string)
+}
+
