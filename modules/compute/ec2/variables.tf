@@ -5,6 +5,11 @@ variable "subnet_id" {
 
 # modules/compute/ec2/variables.tf
 variable "security_group_id" {
-    description = "ID del Security Group para la instancia EC2"
+    description = "ID of the Security Group for EC2 Instance"
     type        = string
+}
+
+variable "ec2_specs" {
+    description = "value"
+    type = map(strings)
 }
