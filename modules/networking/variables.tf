@@ -41,3 +41,8 @@ variable "ohio"{
         env      = "Dev"
     }
 }
+
+variable "tags" {
+    description = "Contains AMI and Type for EC2 Instance"
+    type        = map(string)
+}
