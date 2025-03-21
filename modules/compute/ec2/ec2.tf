@@ -38,3 +38,8 @@ resource "aws_instance" "public_instance" {
     # }
 
 }
+
+    resource "aws_instance" "web_server_example" {
+        # we create an empty instance to import from any previously created resource in our AWS ACC
+        # you can use the following sentence : "terraform import aws_instance.web_server_example 'instance-id'"
+    }
