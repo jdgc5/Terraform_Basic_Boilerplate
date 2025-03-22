@@ -1,2 +1,4 @@
 instancia creada con IP 44.200.200.55 
 instancia creada con IP 3.85.240.214 
+Created instance using IP: 18.204.195.121 
+Instance removed using this IP: 54.208.75.0 

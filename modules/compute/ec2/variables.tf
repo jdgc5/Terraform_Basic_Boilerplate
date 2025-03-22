@@ -14,3 +14,9 @@ variable "ec2_specs" {
     type        = map(string)
 }
 
+variable "instances" {
+    description = "List of instances ec2 created for the examples"
+    type = list(string)
+    default = [ "apache","mysql","anotherInstance" ]
+}
+
