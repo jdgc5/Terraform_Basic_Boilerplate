@@ -22,3 +22,18 @@ module "ec2" {
     aws = aws.virginia
   }
 }
+
+module "terraform_state_backend" { #Example how works a module from https://registry.terraform.io/modules/cloudposse/tfstate-backend/aws/latest
+  source = "cloudposse/tfstate-backend/aws"
+  # Cloud Posse recommends pinning every module to a specific version
+  version     = "1.5.0"
+  namespace  = "example"
+  stage      = "prod"
+  name       = "terraform"
+  attributes = ["state"]
+  environment = "us-east-1"
+
+  terraform_backend_config_file_path = "../../environments/dev"
+  terraform_backend_config_file_name = "backend.tf"
+  force_destroy                      = false
+  }
