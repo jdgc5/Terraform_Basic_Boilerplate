@@ -57,4 +57,19 @@ resource "aws_instance" "public_instance" {
         }
     }
 
+    resource "aws_instance" "conditional_instance" {
+        count = var.enable_monitoring ? 1 : 0 # in true case count will be 0. Otherwilse, value is just 0
+        ami                     = var.ec2_specs["ami"]   
+        instance_type           = var.ec2_specs["instance_type"] 
+        subnet_id =  var.subnet_id
+        key_name = data.aws_key_pair.key_ec2.key_name
+        vpc_security_group_ids = [var.security_group_id]
+        # user_data = file("../../../scripts/userdata.sh") # this a way to execute as root a script, avoid to uncomment if don't want to be charged by AWS.
+
+        tags = {
+            Name = "${var.instances[count.index]}-EC2_Virginia_Test"
+            env = "Dev"
+        }
+    }
+
 

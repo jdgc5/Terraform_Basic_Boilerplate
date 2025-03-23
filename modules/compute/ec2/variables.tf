@@ -20,3 +20,9 @@ variable "instances" {
     default = [ "apache","mysql","anotherInstance" ]
 }
 
+variable "enable_monitoring"{
+    description = "enable EC2 instance if is activated by if condition"
+    type = bool
+    default = true
+}
+
