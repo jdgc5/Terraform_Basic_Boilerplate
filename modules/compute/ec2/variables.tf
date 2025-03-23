@@ -20,9 +20,9 @@ variable "instances" {
     default = [ "apache","mysql","anotherInstance" ]
 }
 
-variable "enable_monitoring"{
+variable "enable_monitoring"{ # in true case ec2.tf will deploy conditional_instance
     description = "enable EC2 instance if is activated by if condition"
     type = bool
-    default = true
+    default = false
 }
 
