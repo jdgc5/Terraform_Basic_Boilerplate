@@ -8,7 +8,7 @@ resource "aws_instance" "public_instance" {
     # user_data = file("../../../scripts/userdata.sh") # this a way to execute as root a script, avoid to uncomment if don't want to be charged by AWS.
 
     tags = {
-        Name = "${var.instances[count.index]}-EC2_Virginia_Test"
+        Name = "${var.instances[count.index]}-EC2_Virginia_Test-${local.sufix}"
         env = "Dev"
     }
 
