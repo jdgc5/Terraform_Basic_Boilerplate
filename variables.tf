@@ -8,3 +8,4 @@ variable "tags" {
     description = "List of variables that is contained on tfvars"
     type        = map(string)
 }
+

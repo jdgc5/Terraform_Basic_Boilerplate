@@ -18,3 +18,7 @@ provider "aws" {
   alias  = "ohio"
 }
 
+provider "aws" {
+  region = "us-east-1"
+}
+

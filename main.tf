@@ -3,13 +3,17 @@ module "networking" {
   s3_buckets = module.buckets.s3_buckets
   tags = var.tags
 
-    providers = {
+  providers = {
     aws = aws.virginia
   }
 }
 
 module "buckets" {
   source = "./environment/dev"
+
+  providers = {
+    aws = aws.virginia
+  }
 }
 
 module "ec2" {
@@ -29,11 +33,13 @@ module "terraform_state_backend" { #Example how works a module from https://regi
   version     = "1.5.0"
   namespace  = "example"
   stage      = "prod"
-  name       = "terraform"
+  name       = "terraform-atoj-example"
   attributes = ["state"]
   environment = "us-east-1"
 
   terraform_backend_config_file_path = "../../environments/dev"
   terraform_backend_config_file_name = "backend.tf"
   force_destroy                      = false
-  }
+
+  s3_bucket_name = "example-us-east-1-prod-terraform-state-atoj" #use your own name to avoid a name currently exits.
+}
