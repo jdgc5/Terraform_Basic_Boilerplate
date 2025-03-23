@@ -37,7 +37,7 @@ module "terraform_state_backend" { #Example how works a module from https://regi
   attributes = ["state"]
   environment = "us-east-1"
 
-  terraform_backend_config_file_path = "../../environments/dev"
+  terraform_backend_config_file_path = "./environments/dev"
   terraform_backend_config_file_name = "backend.tf"
   force_destroy                      = false
 
